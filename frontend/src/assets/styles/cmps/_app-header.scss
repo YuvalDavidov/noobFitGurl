@@ -30,11 +30,28 @@
     }
 
     nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1vw;
+
         font-size: .8em;
         background-color: $clr5;
         padding: 5px;
 
+        img {
+            width: 10vw;
+            height: auto;
+            max-width: 50px;
+        }
+
+        // .head-logo {
+
+        // }
+
     }
+
+
 
     nav a:first-child {
         margin-right: 30px;
@@ -46,8 +63,8 @@
         margin: 10px;
     }
 
-    nav .active {
-        color: $clr1;
-    }
+    // nav .active {
+    //     color: $clr1;
+    // }
 
 }

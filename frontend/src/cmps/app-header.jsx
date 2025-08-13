@@ -1,9 +1,12 @@
-import { Link, NavLink } from 'react-router-dom'
-import {useSelector} from 'react-redux'
 import routes from '../routes'
+import { Link, NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
+
+import logo from '../assets/img/noobGurlLogo.png'
+
 
 export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
@@ -12,7 +15,7 @@ export function AppHeader() {
         try {
             const user = await login(credentials)
             showSuccessMsg(`Welcome: ${user.fullname}`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot login')
         }
     }
@@ -20,7 +23,7 @@ export function AppHeader() {
         try {
             const user = await signup(credentials)
             showSuccessMsg(`Welcome new user: ${user.fullname}`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot signup')
         }
     }
@@ -28,15 +31,24 @@ export function AppHeader() {
         try {
             await logout()
             showSuccessMsg(`Bye now`)
-        } catch(err) {
+        } catch (err) {
             showErrorMsg('Cannot logout')
         }
     }
 
+    <img src={logo} alt="logo" />
+    function lable(route) {
+        if (route.label == 'logo') return <img src={logo} alt="logo" class=".head-logo" />
+        else return route.label
+
+    }
+
+
     return (
         <header className="app-header">
             <nav>
-                {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
+
+                {routes.map(route => <NavLink key={route.path} to={route.path}>{lable(route)}</NavLink>)}
 
                 {user &&
                     <span className="user-info">

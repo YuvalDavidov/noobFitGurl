@@ -55,31 +55,8 @@ export function LoginSignup(props) {
                 <button className="btn-link" onClick={toggleSignup}>{!isSignup ? 'Signup' : 'Login'}</button>
             </p>
             {!isSignup && <form className="login-form" onSubmit={onLogin}>
-                <select
-                    name="username"
-                    value={credentials.username}
-                    onChange={handleChange}
-                >
-                    <option value="">Select User</option>
-                    {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
-                </select>
-                {/* <input
-                        type="text"
-                        name="username"
-                        value={username}
-                        placeholder="Username"
-                        onChange={handleChange}
-                        required
-                        autoFocus
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        placeholder="Password"
-                        onChange={handleChange}
-                        required
-                    /> */}
+
+
                 <button>Login!</button>
             </form>}
             <div className="signup-section">
@@ -115,3 +92,31 @@ export function LoginSignup(props) {
         </div>
     )
 }
+
+
+{/* <select
+                    name="username"
+                    value={credentials.username}
+                    onChange={handleChange}
+                >
+                    <option value="">Select User</option>
+                    {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
+                </select> */}
+
+{/* <input
+                        type="text"
+                        name="username"
+                        value={username}
+                        placeholder="Username"
+                        onChange={handleChange}
+                        required
+                        autoFocus
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        value={password}
+                        placeholder="Password"
+                        onChange={handleChange}
+                        required
+                    /> */}
